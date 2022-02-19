@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 
-export default function FindObject({ navigation }) {
+export default function FindObject({ route, navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 10, alignSelf: 'stretch', alignItems: 'center', borderWidth: 2, margin: 10 }}>
@@ -8,7 +8,7 @@ export default function FindObject({ navigation }) {
             </View>
 
             <View style={{ flex: 1, flexDirection: 'row' }}>
-                <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Find Object') }}>
+                <TouchableOpacity style={[styles.button, {backgroundColor: '#C4C4C4'}]} onPress={() => { navigation.navigate('Find Object') }}>
                     <Text>Find Object</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Read Text') }}>
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        backgroundColor: '#EBEBEB',
+        backgroundColor: '#F3F3F3',
     }
 });

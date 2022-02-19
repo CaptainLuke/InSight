@@ -1,48 +1,43 @@
 import { StyleSheet, Text, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import FindObject from './FindObject.js'
 import ReadText from './ReadText.js'
 
-
-const Stack = createNativeStackNavigator();
-export default function MyStack() {
+const Tab = createBottomTabNavigator();
+export default function MyTabs() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Tab.Navigator tabBar={()=>{}}>
+        <Tab.Screen
           name="Home"
-          component={App}
+          component={Home}
           options={({ navigation }) => ({
-            headerLeft: () => <View></View>,
-            headerTitle: () => header(navigation)
-          })
-          }
+            headerTitle: () => Header(navigation)
+          })}
         />
-        <Stack.Screen
+        <Tab.Screen
           name="Find Object"
           component={FindObject}
           options={({ navigation }) => ({
-            headerLeft: () => <View></View>,
-            headerTitle: () => header(navigation)
-          })
-        }
+            headerTitle: () => Header(navigation)
+          })}
         />
-        <Stack.Screen
+        <Tab.Screen
           name="Read Text"
           component={ReadText}
           options={({ navigation }) => ({
-            headerLeft: () => <View></View>,
-            headerTitle: () => header(navigation)
-          })
-          }
+            headerTitle: () => Header(navigation)
+          })}
+
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
-};
+}
 
-function App({ navigation }) {
+function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ flex: 10, alignSelf: 'stretch', alignItems: 'center', borderWidth: 2, margin: 10 }}>
@@ -61,9 +56,9 @@ function App({ navigation }) {
   );
 }
 
-function header(navigation) {
+function Header(navigation) {
   return (
-    <TouchableOpacity onPress={() => { navigation.navigate('Home') }} style={{ flex: 1 }}><Text style={{ fontWeight: 'bold', fontSize: 30 }}>InSight</Text></TouchableOpacity>
+    <TouchableOpacity onPress={() => { navigation.navigate('Home') }} style={{ flex: 1}}><Text style={{ fontWeight: 'bold', fontSize: 30 }}>InSight</Text></TouchableOpacity>
   )
 }
 

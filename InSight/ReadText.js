@@ -11,7 +11,7 @@ export default function ReadText({ navigation }) {
                 <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Find Object') }}>
                     <Text>Find Object</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Read Text') }}>
+                <TouchableOpacity style={[styles.button, {backgroundColor: '#C4C4C4'}]} onPress={() => { navigation.navigate('Read Text') }}>
                     <Text>Read Text</Text>
                 </TouchableOpacity>
             </View>
@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        backgroundColor: '#EBEBEB',
+        backgroundColor: '#F3F3F3',
     }
 });
