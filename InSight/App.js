@@ -14,21 +14,24 @@ export default function MyTabs() {
           name="Home"
           component={Home}
           options={({ navigation }) => ({
-            headerTitle: () => Header(navigation)
+            headerLeft: () => Header(navigation),
+            headerTitle: () => <View></View>
           })}
         />
         <Tab.Screen
           name="Find Object"
           component={FindObject}
           options={({ navigation }) => ({
-            headerTitle: () => Header(navigation)
+            headerLeft: () => Header(navigation),
+            headerTitle: () => <View></View>
           })}
         />
         <Tab.Screen
           name="Read Text"
           component={ReadText}
           options={({ navigation }) => ({
-            headerTitle: () => Header(navigation)
+            headerLeft: () => Header(navigation),
+            headerTitle: () => <View></View>
           })}
 
         />
@@ -58,7 +61,7 @@ function Home({ navigation }) {
 
 function Header(navigation) {
   return (
-    <TouchableOpacity onPress={() => { navigation.navigate('Home') }} style={{ flex: 1}}><Text style={{ fontWeight: 'bold', fontSize: 30 }}>InSight</Text></TouchableOpacity>
+    <TouchableOpacity onPress={() => { navigation.navigate('Home') }} style={{flex :1, paddingLeft:10}}><Text style={{ fontWeight: 'bold', fontSize: 30 }}>InSight</Text></TouchableOpacity>
   )
 }
 
